@@ -19,7 +19,6 @@ permissions:
 
 jobs:
   workflows:
-    # zizmor: ignore[unpinned-uses] - reusable workflow intentionally uses @main
-    uses: hassio-addons/workflows/.github/workflows/app-deploy.yaml@main
+    uses: hassio-addons/workflows/.github/workflows/app-deploy.yaml@ce3689265f9e961665382659491ff91a22cb64ad # v2.0.0
     secrets:
       DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}

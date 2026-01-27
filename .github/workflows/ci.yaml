@@ -19,5 +19,4 @@ permissions:
 
 jobs:
   workflows:
-    # zizmor: ignore[unpinned-uses] - reusable workflow intentionally uses @main
-    uses: hassio-addons/workflows/.github/workflows/app-ci.yaml@main
+    uses: hassio-addons/workflows/.github/workflows/app-ci.yaml@ce3689265f9e961665382659491ff91a22cb64ad # v2.0.0
