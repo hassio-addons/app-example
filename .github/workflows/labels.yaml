@@ -12,4 +12,5 @@ permissions:
 
 jobs:
   workflows:
+    # zizmor: ignore[unpinned-uses] - reusable workflow intentionally uses @main
     uses: hassio-addons/workflows/.github/workflows/labels.yaml@main
