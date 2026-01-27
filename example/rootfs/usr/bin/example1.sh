@@ -1,10 +1,10 @@
 #!/command/with-contenv bashio
 # shellcheck shell=bash
 # ==============================================================================
-# Home Assistant Community Add-on: Example
+# Home Assistant Community App: Example
 #
-# Example add-on for Home Assistant.
-# This add-on displays a random quote every X seconds.
+# Example app for Home Assistant.
+# This app displays a random quote every X seconds.
 # ==============================================================================
 
 # ------------------------------------------------------------------------------

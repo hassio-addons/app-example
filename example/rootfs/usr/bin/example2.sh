@@ -1,9 +1,9 @@
 #!/command/with-contenv bashio
 # shellcheck shell=bash
 # ==============================================================================
-# Home Assistant Community Add-on: Example
+# Home Assistant Community App: Example
 #
-# Example add-on for Home Assistant.
+# Example app for Home Assistant.
 # ------------------------------------------------------------------------------
 main() {
     bashio::log.trace "${FUNCNAME[0]}"
