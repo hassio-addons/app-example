@@ -1,6 +1,7 @@
 ---
 name: PR Labels
 
+# zizmor: ignore[dangerous-triggers] - only has read permissions, no checkout
 # yamllint disable-line rule:truthy
 on:
   pull_request_target:
@@ -10,6 +11,9 @@ on:
       - unlabeled
       - synchronize
 
+permissions:
+  pull-requests: read
+
 jobs:
   workflows:
-    uses: hassio-addons/workflows/.github/workflows/pr-labels.yaml@main
+    uses: hassio-addons/workflows/.github/workflows/pr-labels.yaml@ce3689265f9e961665382659491ff91a22cb64ad # v2.0.0

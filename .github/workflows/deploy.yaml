@@ -1,6 +1,7 @@
 ---
 name: Deploy
 
+# zizmor: ignore[dangerous-triggers] - workflow_run needed for deploy pattern
 # yamllint disable-line rule:truthy
 on:
   release:
@@ -12,8 +13,12 @@ on:
     types:
       - completed
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   workflows:
-    uses: hassio-addons/workflows/.github/workflows/addon-deploy.yaml@main
+    uses: hassio-addons/workflows/.github/workflows/app-deploy.yaml@ce3689265f9e961665382659491ff91a22cb64ad # v2.0.0
     secrets:
       DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
