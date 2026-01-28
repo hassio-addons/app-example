@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base:19.0.0
+ARG BUILD_FROM=ghcr.io/hassio-addons/base:20.0.0
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -7,8 +7,8 @@ COPY rootfs /
 
 # Setup base
 RUN apk add --no-cache \
-    coreutils=9.7-r1 \
-    wget=1.25.0-r1
+    coreutils=9.8-r1 \
+    wget=1.25.0-r2
 
 # Build arguments
 ARG BUILD_ARCH
