@@ -13,4 +13,4 @@ permissions:
 
 jobs:
   workflows:
-    uses: hassio-addons/workflows/.github/workflows/stale.yaml@ce3689265f9e961665382659491ff91a22cb64ad # v2.0.0
+    uses: hassio-addons/workflows/.github/workflows/stale.yaml@029301a2e990f6c1d430cad7cd1726970b2ca9d6 # v2.0.3
