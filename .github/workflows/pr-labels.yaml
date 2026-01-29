@@ -1,18 +1,16 @@
 ---
 name: PR Labels
 
-# zizmor: ignore[dangerous-triggers] - only has read permissions, no checkout
 # yamllint disable-line rule:truthy
 on:
-  pull_request_target:
+  pull_request:
     types:
       - opened
       - labeled
       - unlabeled
       - synchronize
 
-permissions:
-  pull-requests: read
+permissions: {}
 
 jobs:
   workflows:
