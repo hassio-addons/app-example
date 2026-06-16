@@ -23,14 +23,14 @@ get_quote_online() {
     bashio::log.trace "${FUNCNAME[0]}"
 
     number=$(( ( RANDOM % 999 )  + 1 ))
-    html=$(wget -q -O - "http://www.quotationspage.com/quote/${number}.html")
+    html=$(wget -q -O - "https://www.quotationspage.com/quote/${number}.html")
 
     quote=$(grep -e "<dt>" -e "</dd>" <<< "${html}" \
         | awk -F'[<>]' '{
             if($2 ~ /dt/)
                 { print $3 }
             else if($4 ~ /b/)
-                { print "-- " $7 "  n(" $19 ")"}
+                { print "-- " $7 "\\n(" $19 ")"}
         }'
     )
 
@@ -63,7 +63,7 @@ get_quote_offline() {
     quotes+=("All our dreams can come true, if we have the courage to pursue them.\\n -Walt Disney")
     quotes+=("Success consists of going from failure to failure without loss of enthusiasm.\\n -Winston Churchill")
 
-    number=$(( ( RANDOM % 11 )  + 1 ))
+    number=$(( RANDOM % ${#quotes[@]} ))
     echo "${quotes[$number]}"
 }
 
@@ -81,7 +81,7 @@ display_quote() {
 
     bashio::log.trace "${FUNCNAME[0]}"
 
-    if wget -q --spider http://www.quotationspage.com; then
+    if wget -q --spider https://www.quotationspage.com; then
         quote=$(get_quote_online)
     else
         bashio::log.notice \
@@ -89,8 +89,7 @@ display_quote() {
         quote=$(get_quote_offline)
     fi
 
-    # shellcheck disable=SC2001
-    quote=$(sed 's/n()//g' <<< "${quote}" | xargs -0 echo | fmt -40)
+    quote=$(xargs -0 echo <<< "${quote}" | fmt -40)
     timestamp=$(date +"%T")
 
     bashio::log.info "Random quote loaded @ ${timestamp}"
